@@ -1,0 +1,2 @@
+['Hulk', 'Loops', '10:00', 'Open Area', ['Samatha', 'Jeff', 'Clark', 'Thandeka', 'Corban']]
+['Lwazi', 'JSON', '09:30', 'Projector Room', ['Zenani', 'Jeff', 'Clark', 'Julian']]

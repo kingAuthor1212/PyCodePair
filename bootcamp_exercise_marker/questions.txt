@@ -1,0 +1,11 @@
+What are variables used for?, A, A - Variables are used to store information to be referenced and manipulated in a computer program and can change throughout the life cycle of a program, B - Variables are used to store information that will never change, C - sdjhdsjhfdhjsdfdbfhsd
+How many leaves are in a tree?, C, A - 23, B - 45, C - 78
+_______ is the process of finding errors and fixing them within a program?, C, A - Compiling, B - Executing, C - Debugging
+Which command will stop an infinite loop?, B, A - Alt + C, B - Ctrl + C, C - Esc
+A loop that never ends is referred to as a(n)_________., B, A - While loop, B - Infinite loop, C - Recursive loop
+What does HTML stand for?, C, A - Hyper Trainer Marking Language, B - Hyper Text Marketing Language, C - Hyper Text Markup Language
+Special quatity whose value doesn't change during the whole program is classified as?, A, A - Constant, B - String, C - Variable
+Animations and interactivity with the user on web pages can be done by?, A, A - Javascript, B - HTML, C - PHP
+
+
+
