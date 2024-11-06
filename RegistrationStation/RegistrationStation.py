@@ -4,9 +4,9 @@ Registration Station project
 
 def read_file(file_name):
     file = open(file_name, 'r')
-    contents = file.read()
+    contents = file.readlines()
     print(contents)
-    file.close()
+    # file.close()
     return file
     """
     Read and return contents of text file
@@ -39,13 +39,19 @@ def correct_details():
     """
 
 def get_file_contents():
-    
+
     file_contents = read_file('bootcampers.txt')
     return file_contents
 
 
 
 def find_username(file_name):
+
+    username = input("Enter username: ")
+
+    for line in file_name:
+       if username in line:
+        return line
 
     """
     Main functiontion for running Registration Station, which inlcude:
