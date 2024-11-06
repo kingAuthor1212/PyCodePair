@@ -9,7 +9,6 @@ class TestTeamAllocator(unittest.TestCase):
         database = student_list()
         self.assertEqual(type(database), type(['list']))
 
-
     def test_dbn_campus(self):
         test_database = ['zakithikhDBN2022 - 4 April - Johannesburg Physical - seat 3', 'ddhaalJHB2022 - 2 May - Cape Town Virtual',
     'thandohDBN2022 - 4 April - Phokeng Physical - seat 3', 'zaneleJHB2022 - 2 May - Durban Virtual']
