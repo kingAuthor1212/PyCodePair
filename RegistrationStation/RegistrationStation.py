@@ -24,10 +24,8 @@ def input_user_name():
 
 def correct_or_incorrect():
 
-    """
-    Prompt to ask if details are correct or not
-    @return correct or incorrect
-    """
+    check = input("Is this correct?:\n")
+    return check
 
 
 def correct_details():
@@ -41,8 +39,10 @@ def correct_details():
     """
 
 def get_file_contents():
+    
+    file_contents = read_file('bootcampers.txt')
+    return file_contents
 
-    """Return desired text file"""
 
 
 def find_username(file_name):
