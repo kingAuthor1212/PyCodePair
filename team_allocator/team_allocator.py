@@ -51,8 +51,12 @@ def jhb_campus_students(student_list):
     students in the Johannesburg campus only.
     '''
     jhb_students = []
-
+    for student in student_list:
+        clean_student = student.replace(" ", "").lower()
+        if "johannesburg" in clean_student:
+            jhb_students.append(clean_student)
     return jhb_students
+
 
 
 def nw_campus_students(student_list):
@@ -62,6 +66,10 @@ def nw_campus_students(student_list):
     '''
     nw_students = []
 
+    for student in student_list:
+        clean_student = student.replace(" ", "").lower()
+        if "phokeng" in clean_student:
+            nw_students.append(clean_student)
     return nw_students
 
     
@@ -114,13 +122,19 @@ def cpt_teams_file(capetown_final_teams):
     '''
 
 
-def jhb_physical_students(jhb_physical_students):
+def jhb_physical_students(students):
     '''
     from the list of jhb_campus_students, fill in this function to return a list of all
     students who will be attending physically on campus
     '''
+    jhb_students = jhb_campus_students(students)
+    jhb_physical_students = []
 
+    for student in jhb_students:
+        if "physical" in student:
+            jhb_physical_students.append(student)
     return jhb_physical_students
+
 
 
 def jhb_physical_teams(jhb_physical_teams):
@@ -137,12 +151,17 @@ def jhb_teams_file(jhb_final_teams):
     '''
 
 
-def nw_physical_students(nw_physical_students):
+def nw_physical_students(students):
     '''
     from the list of nw_campus_students, fill in this function to return a list of all
     students who will be attending physically on campus
     '''
+    nw_students = nw_campus_students(students)
+    nw_physical_students = []
 
+    for student in nw_students:
+        if "physical" in student:
+            nw_physical_students.append(student)
     return nw_physical_students
 
 
@@ -167,6 +186,10 @@ def get_virtual_students(student_list):
     students attending virtually.
     '''
     virtual_campus = []
+
+    for student in student_list:
+        if "Virtual" in student:
+            virtual_campus.append(student)
 
     return virtual_campus
 
