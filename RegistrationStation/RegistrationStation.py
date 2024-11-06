@@ -3,14 +3,20 @@ Registration Station project
 """
 
 def read_file(file_name):
-
+    file = open(file_name, 'r')
+    contents = file.read()
+    print(contents)
+    file.close()
+    return file
     """
     Read and return contents of text file
     """
 
 
 def input_user_name():
-
+    username_input = input("Enter Your Username Here:\n")
+    
+    return username_input
     """
     Takes username as input
     """
