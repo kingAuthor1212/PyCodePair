@@ -31,7 +31,11 @@ def dbn_campus_students(student_list):
     students in the Durban campus only.
     '''
     dbn_students = []
-
+    
+    for x in student_list:
+        x = x.lower().replace(" ", "")
+        if "durban" in x:
+            dbn_students.append(x)
     return dbn_students
 
 
@@ -41,6 +45,11 @@ def cpt_campus_students(student_list):
     students in the Cape Town campus only.
     '''
     cpt_students = []
+    
+    for x in student_list:
+        x  = x.lower().replace(" ", "")
+        if "capetown" in x:
+            cpt_students.append(x)
 
     return cpt_students
 
@@ -65,11 +74,17 @@ def nw_campus_students(student_list):
     return nw_students
 
     
-def dbn_physical_students(dbn_students):
+def dbn_physical_students(dbn_physical):
     '''
     from the list of dbn_campus_students, fill in this function to return a list of all
     students who will be attending physically on campus
     '''
+    dbn_students = dbn_campus_students(dbn_physical)
+    dbn_physical_students = []
+
+    for x in dbn_students:
+        if "physical" in x:
+            dbn_physical_students.append(x)
 
     return dbn_physical_students
 
@@ -90,12 +105,18 @@ def dbn_teams_file(durban_physical_teams):
 
 
 
-def cpt_physical_students(cpt_physical_students):
+def cpt_physical_students(cpt_physical):
     '''
     from the list of cpt_campus_students, fill in this function to return a list of all
     students who will be attending physically on campus
     '''
-    
+    cpt_students = cpt_campus_students(cpt_physical)
+    cpt_physical_students =  []
+
+    for x in cpt_students:
+        if "physical" in x:
+            cpt_physical_students.append(x)
+
     return cpt_physical_students
 
 
