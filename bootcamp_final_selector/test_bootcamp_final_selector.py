@@ -16,6 +16,10 @@ class TestBootcampFinalSelector(unittest.TestCase):
         self.assertEqual(output.getvalue(), '''Enter username: ''')
         self.assertEqual(result,"studentA")
         sys.stdout = sys.__stdout__
+    def test_user_name_valid(self, mock_print):
+        result = bootcamp_final_selector.user_name()
+        mock_print.assert_called_with("Username exists in the bootcampers list")
+        self.assertEqual(result, "studentA")
 
     def test_file_exists(self):
         # ask Sam for the relevant path
