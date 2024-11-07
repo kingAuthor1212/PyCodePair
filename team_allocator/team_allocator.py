@@ -274,11 +274,29 @@ def virtual_teams(students):
     return virtual_teams
 
 
-def virtual_teams_file(virtual_teams):
+def virtual_teams_file(students):
     '''
     write and save the information in the virtual_teams into a textfile
     '''
+    teams = []
+    virtual = get_virtual_students(students)
 
+
+    while len(virtual) != 0:
+        x = virtual[:4]
+        teams.append(x)
+        del virtual[:4]
+
+    strings = []
+
+    for list in teams:
+        for element in list:
+            for item in element.split("-"):
+                strings.append(item)
+            strings.append("\n")
+        
+    with open("virtual_teams.txt", "w") as text_file:
+        text_file.write(''.join(strings))
 
 if __name__ == '__main__':
     '''
