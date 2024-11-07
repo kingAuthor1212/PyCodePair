@@ -19,7 +19,9 @@ def read_file(username):
     Use this function to open and read the contents of the file student_results.txt 
     in order that you may extract the users results
     '''
-     
+    with open("student_results.txt", "r") as file:
+        student_results = file.readlines()
+    return student_results
     return student_results
 
     
