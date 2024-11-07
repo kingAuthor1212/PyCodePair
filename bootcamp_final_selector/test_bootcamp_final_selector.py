@@ -20,6 +20,8 @@ class TestBootcampFinalSelector(unittest.TestCase):
         result = bootcamp_final_selector.user_name()
         mock_print.assert_called_with("Username exists in the bootcampers list")
         self.assertEqual(result, "studentA")
+    @patch("sys.stdin", StringIO("NonExistentUser\n"))
+    @patch("builtins.print")
 
     def test_file_exists(self):
         # ask Sam for the relevant path
