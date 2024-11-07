@@ -109,11 +109,21 @@ def dbn_physical_teams(physical_teams):
         dbn_teams.append(team)
     return dbn_teams
 
-def dbn_teams_file(durban_physical_teams):
+def dbn_teams_file(durban_final_teams):
     '''
     write and save the information in the dbn_physical_teams into a textfile
     '''
+    teams = cpt_physical_teams(durban_final_teams)
+    strings = []
 
+    for list in teams:
+        for element in list:
+            for item in element.split("-"):
+                strings.append(item)
+            strings.append("\n")
+        
+    with open("campus_teams.txt", "w") as text_file:
+        text_file.write('\n'.join(strings))
 
 
 def cpt_physical_students(cpt_physical):
@@ -148,7 +158,17 @@ def cpt_teams_file(capetown_final_teams):
     '''
     write and save the information in the cpt_physical_teams into a textfile
     '''
+    teams = cpt_physical_teams(capetown_final_teams)
+    strings = []
 
+    for list in teams:
+        for element in list:
+            for item in element.split("-"):
+                strings.append(item)
+            strings.append("\n")
+        
+    with open("campus_teams.txt", "w") as text_file:
+        text_file.write('\n'.join(strings))
 
 def jhb_physical_students(students):
     '''
@@ -278,9 +298,13 @@ def virtual_teams_file(students):
     '''
     write and save the information in the virtual_teams into a textfile
     '''
+<<<<<<< HEAD
     teams = []
     virtual = get_virtual_students(students)
 
+=======
+    
+>>>>>>> 15bd45c017a45ad5e9e8ed4ab382e42217f712de
 
     while len(virtual) != 0:
         x = virtual[:4]
