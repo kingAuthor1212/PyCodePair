@@ -320,4 +320,24 @@ if __name__ == '__main__':
     '''
     call all your functions below to make your program execute    
     '''
-    pass
+
+    student_list
+    dbn_campus_students
+    dbn_physical_students
+    dbn_physical_teams
+    dbn_teams_file
+    cpt_campus_students
+    cpt_physical_students
+    cpt_physical_teams
+    cpt_teams_file
+    jhb_campus_students
+    jhb_physical_students
+    jhb_physical_teams
+    jhb_teams_file
+    nw_campus_students
+    nw_physical_students
+    nw_teams_file
+    nw_physical_teams
+    virtual_teams
+    virtual_teams_file
+    get_virtual_students
