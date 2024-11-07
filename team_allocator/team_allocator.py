@@ -165,11 +165,18 @@ def jhb_physical_students(students):
 
 
 
-def jhb_physical_teams(jhb_physical_teams):
+def jhb_physical_teams(students):
     '''
     from the list of jhb_physical_students create list of 4 students per team, and add them to 
     one big list
     '''
+    jhb_physical_teams = []
+    jhb_physical = jhb_physical_students(students)
+
+    while len(jhb_physical) != 0:
+        x = jhb_physical[:4]
+        jhb_physical_teams.append(x)
+        del jhb_physical[:4]
 
     return jhb_physical_teams
 
@@ -177,6 +184,17 @@ def jhb_teams_file(jhb_final_teams):
     '''
     write and save the information in the jhb_physical_teams into a textfile
     '''
+    teams = jhb_physical_teams(jhb_final_teams)
+    strings = []
+
+    for list in teams:
+        for element in list:
+            for item in element.split("-"):
+                strings.append(item)
+            strings.append("\n")
+        
+    with open("campus_teams.txt", "w") as text_file:
+        text_file.write('\n'.join(strings))
 
 
 def nw_physical_students(students):
@@ -193,11 +211,18 @@ def nw_physical_students(students):
     return nw_physical_students
 
 
-def nw_physical_teams(nw_physical_teams):
+def nw_physical_teams(students):
     '''
     from the list of nw_physical_students, create list of 4 students per team, and add them to 
     one big list
     '''
+    nw_physical_teams = []
+    nw_physical = jhb_physical_students(students)
+
+    while len(nw_physical) != 0:
+        x = nw_physical[:4]
+        nw_physical_teams.append(x)
+        del nw_physical[:4]
 
     return nw_physical_teams
 
@@ -206,6 +231,17 @@ def nw_teams_file(nw_final_teams):
     '''
     write and save the information in the nw_physical_teams into a textfile
     '''
+    teams = nw_physical_teams(nw_final_teams)
+    strings = []
+
+    for list in teams:
+        for element in list:
+            for item in element.split("-"):
+                strings.append(item)
+            strings.append("\n")
+        
+    with open("campus_teams.txt", "w") as text_file:
+        text_file.write('\n'.join(strings))
 
 
 def get_virtual_students(student_list):
@@ -213,21 +249,27 @@ def get_virtual_students(student_list):
     from the list of students above, fill in this function to return a list of all
     students attending virtually.
     '''
+    
     virtual_campus = []
-
     for student in student_list:
         if "Virtual" in student:
             virtual_campus.append(student)
-
     return virtual_campus
 
 
-def virtual_teams(virtual_students_list):
+def virtual_teams(students):
     '''
     from the list of virtual_students above,  create list of 4 students per team, and add them to 
         one big list
     '''
     virtual_teams = []
+    virtual = get_virtual_students(students)
+    virtual= [student.replace(" ", "").lower() for student in virtual]
+
+    while len(virtual) != 0:
+        x = virtual[:4]
+        virtual_teams.append(x)
+        del virtual[:4]
 
     return virtual_teams
 
@@ -243,4 +285,3 @@ if __name__ == '__main__':
     call all your functions below to make your program execute    
     '''
     pass
-
