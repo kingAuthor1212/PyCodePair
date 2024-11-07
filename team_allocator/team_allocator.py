@@ -113,7 +113,7 @@ def dbn_teams_file(durban_final_teams):
     '''
     write and save the information in the dbn_physical_teams into a textfile
     '''
-    teams = cpt_physical_teams(durban_final_teams)
+    teams = dbn_physical_teams(durban_final_teams)
     strings = []
 
     for list in teams:
@@ -237,7 +237,7 @@ def nw_physical_teams(students):
     one big list
     '''
     nw_physical_teams = []
-    nw_physical = jhb_physical_students(students)
+    nw_physical = nw_physical_students(students)
 
     while len(nw_physical) != 0:
         x = nw_physical[:4]
@@ -298,23 +298,18 @@ def virtual_teams_file(students):
     '''
     write and save the information in the virtual_teams into a textfile
     '''
-    
-
-    while len(virtual) != 0:
-        x = virtual[:4]
-        teams.append(x)
-        del virtual[:4]
-
+    teams = virtual_teams(students)
     strings = []
 
-    for list in teams:
-        for element in list:
+    for team in teams:
+        for element in team:
             for item in element.split("-"):
                 strings.append(item)
             strings.append("\n")
-        
+
     with open("virtual_teams.txt", "w") as text_file:
         text_file.write(''.join(strings))
+    
 
 if __name__ == '__main__':
     '''
