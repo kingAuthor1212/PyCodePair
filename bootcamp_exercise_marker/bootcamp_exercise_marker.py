@@ -1,11 +1,17 @@
 # Abdur-Raheem Lee <abdur-raheem@wethinkcode.co.za>
-
+import random
 def read_file():
     '''
     Reads contents from the text file (questions.txt)
     @return a list of five random questions
     '''
-
+    with open ("questions.txt", "r") as questions:
+        questions_list = random.shuffle(questions.readlines.split())
+        list_of_questions=[]
+        for i in range(5):
+            list_of_questions.append(question_list.pop())
+        return list_of_questions
+        
 
 def ask_questions(list_of_questions):
     '''
