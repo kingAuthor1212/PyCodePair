@@ -22,7 +22,7 @@ def read_file(username):
     with open("student_results.txt", "r") as file:
         student_results = file.readlines()
     return student_results
-    return student_results
+
 
     
 def get_student_scores(student_results):
@@ -51,7 +51,25 @@ def exam_percentage(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    with open("student_results.txt", "r") as file:
+        current_section = None
+
+        for line in file:
+            line = line.strip()
+
+            if line == "exam_results:":
+                current_section == "exam"
+                continue
+            elif line == "group_project:":
+                current_section = "group"
+                continue
+            elif line == "Dailey_exercises:":
+                current_section = "daily"
+                continue
     
+    
+    
+
     return round(exam_percentage)
 
 
