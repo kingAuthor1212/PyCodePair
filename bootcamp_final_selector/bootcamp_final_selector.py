@@ -20,7 +20,6 @@ def read_file(username):
     Use this function to open and read the contents of the file student_results.txt 
     in order that you may extract the users results
     '''
-<<<<<<< HEAD
     student_results = {}
 
     try:
@@ -43,12 +42,6 @@ def read_file(username):
         print("File not found.")
     
     return student_results
-=======
-    with open("student_results.txt", "r") as file:
-        student_results = file.readlines()
-    return student_results
-
->>>>>>> 5d33f8043ceb2826d887ed19f5b9bff0db6f17f7
 
     
 def get_student_scores(student_results):
@@ -82,30 +75,7 @@ def exam_percentage(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
-<<<<<<< HEAD
     return round(list_scores[0] * 0.6)
-=======
-    with open("student_results.txt", "r") as file:
-        current_section = None
-
-        for line in file:
-            line = line.strip()
-
-            if line == "exam_results:":
-                current_section == "exam"
-                continue
-            elif line == "group_project:":
-                current_section = "group"
-                continue
-            elif line == "Dailey_exercises:":
-                current_section = "daily"
-                continue
-    
-    
-    
-
-    return round(exam_percentage)
->>>>>>> 5d33f8043ceb2826d887ed19f5b9bff0db6f17f7
 
 
 def group_project_score(list_scores):

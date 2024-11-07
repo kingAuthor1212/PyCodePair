@@ -7,6 +7,7 @@ import bootcamp_final_selector
 
 class TestBootcampFinalSelector(unittest.TestCase):
     @patch("sys.stdin", StringIO("StudentA\n"))
+    @patch("builtins.print")
     def test_user_name(self):
         output = StringIO()
         sys.stdout = output
