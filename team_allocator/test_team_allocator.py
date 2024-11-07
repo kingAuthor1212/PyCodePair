@@ -198,7 +198,7 @@ class TestTeamAllocator(unittest.TestCase):
 
 
     def test_virtual_teams_text_file_created(self):
-        boolean = os.path.isfile("./virtual_teams.txt")
+        boolean = os.path.isfile("virtual_teams.txt")
         self.assertEqual(boolean, True)
 
 
