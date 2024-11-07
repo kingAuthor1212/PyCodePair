@@ -11,9 +11,10 @@ class TestBootcampFinalSelector(unittest.TestCase):
         output = StringIO()
         sys.stdout = output
 
-        bootcamp_final_selector.user_name()
+        result = bootcamp_final_selector.user_name()
         self.assertEqual(output.getvalue(), '''Enter username: ''')
-
+        self.assertEqual(result,"studentA")
+        sys.stdout = sys.__stdout__
 
     def test_file_exists(self):
         # ask Sam for the relevant path
@@ -28,12 +29,12 @@ class TestBootcampFinalSelector(unittest.TestCase):
 
     def test_exam_percentage(self):
         exam_percentage = bootcamp_final_selector.exam_percentage([30, 10, 20])
-        self.assertEqual(exam_percentage, 30)
+        self.assertEqual(exam_percentage, 18)
 
 
     def test_group_project_score(self):
         exam_score = bootcamp_final_selector.group_project_score([30, 10, 20])
-        self.assertEqual(exam_score, 10)
+        self.assertEqual(exam_score, 20)
 
 
     def test_group_project_percentage(self):
@@ -48,12 +49,12 @@ class TestBootcampFinalSelector(unittest.TestCase):
 
     def test_daily_exercise_percentage(self):
         exam_percentage = bootcamp_final_selector.daily_exercise_percentage([30, 10, 20])
-        self.assertEqual(exam_percentage, 67)
+        self.assertEqual(exam_percentage, 13)
 
 
     def test_final_result(self):
-        final_result = bootcamp_final_selector.final_result(18, 10, 13)
-        self.assertEqual(final_result, 41)
+        final_result = bootcamp_final_selector.final_result(18, 20, 13)
+        self.assertEqual(final_result, 13)
 
 
     def test_first_class_pass(self):

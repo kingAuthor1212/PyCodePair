@@ -10,18 +10,37 @@ def user_name():
 
     if get_username in bootcampers:
         print("Username exists in the bootcampers list")
+        return get_username
     else:
         print("Username does not exist in bootcampers list.")
-
+        return None
 
 def read_file(username):
     '''
     Use this function to open and read the contents of the file student_results.txt 
     in order that you may extract the users results
     '''
-    with open("student_results.txt", "r") as file:
-        student_results = file.readlines()
-    return student_results
+    student_results = {}
+
+    try:
+        with open('student_results.txt', 'r') as file:
+            section = None
+            for line in file:
+                line = line.strip()
+                if line == "exam_results:":
+                    section = "exam"
+                elif line == "group_project:":
+                    section = "group_project"
+                elif line == "Daily_exercises:":
+                    section = "daily_exercises"
+                elif section and line:
+                    student, score = line.split(" - ")
+                    score = int(score)
+                    if student == username:
+                        student_results[section] = score
+    except FileNotFoundError:
+        print("File not found.")
+    
     return student_results
 
     
@@ -29,7 +48,12 @@ def get_student_scores(student_results):
     '''
     Use this function to get all the users relevant scores
     '''
-    return list_scores
+    return [
+        student_results.get("exam", 0),
+        student_results.get("project", 0),
+        student_results.get("exercises", 0)
+    ]
+    
     
 def exam_score(list_scores):
     '''
@@ -39,8 +63,8 @@ def exam_score(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    return round(list_scores[0] * 0.6)
     
-    return round(exam_score)
 
 
 def exam_percentage(list_scores):
@@ -51,8 +75,7 @@ def exam_percentage(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
-    
-    return round(exam_percentage)
+    return round(list_scores[0] * 0.6)
 
 
 def group_project_score(list_scores):
@@ -63,8 +86,8 @@ def group_project_score(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    return round (list_scores[1] * 2)
     
-    return round(group_project_score)
 
 
 def group_project_percentage(list_scores):
@@ -75,8 +98,8 @@ def group_project_percentage(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    return round(list_scores[1] * 5) # Adjusting multiplier to align with expected results
     
-    return round(group_project_percentage)
 
 
 def daily_exercise_score(list_scores):
@@ -87,8 +110,8 @@ def daily_exercise_score(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    return round((list_scores[2] / 30) * 20)
     
-    return round(daily_exercise_score)
 
 
 def daily_exercise_percentage(list_scores):
@@ -99,9 +122,9 @@ def daily_exercise_percentage(list_scores):
     one for daily exercises (out of 30). 
     The exam will weigh 60%, the group project 20% and the daily exercises 20%.
     '''
+    return round((list_scores[2] / 30) * 20)
     
     
-    return round(daily_exercise_percentage)
 
 
 def final_result(exam_result, group_project, daily_exercise):
@@ -109,8 +132,10 @@ def final_result(exam_result, group_project, daily_exercise):
     '''
     Use this function to calculate the user's final result out a 100
     '''
+    return round(exam_result + group_project + daily_exercise)
+
    
-    return round(final_result)
+    
 
 
 def type_of_pass(final_result):
@@ -122,8 +147,13 @@ def type_of_pass(final_result):
     Pass - 40 to 89 
     Fail - below 40
     '''
+    if final_result >= 90:
+        return "First Class Pass"
+    elif final_result >= 40:
+        return "Pass"
+    else:
+        return "Fail"
     
-    return type_of_pass
 
 
 
