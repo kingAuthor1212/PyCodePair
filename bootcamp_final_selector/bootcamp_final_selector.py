@@ -2,7 +2,16 @@ def user_name():
     '''
     Use this function to get the user input (username)
     '''
-    pass
+    with open("bootcampers.txt", "r") as file:
+        bootcampers = file.readlines()
+    
+    bootcampers = [line.split(" - ")[0].strip() for line in bootcampers]
+    get_username = input("Enter your username: ")
+
+    if get_username in bootcampers:
+        print("Username exists in the bootcampers list")
+    else:
+        print("Username does not exist in bootcampers list.")
 
 
 def read_file(username):
