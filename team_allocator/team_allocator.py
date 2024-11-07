@@ -97,14 +97,17 @@ def dbn_physical_students(dbn_physical):
     return dbn_physical_students
 
 
-def dbn_physical_teams(dbn_physical_students):
+def dbn_physical_teams(physical_teams):
     '''
     from the list of dbn_physical_students create list of 4 students per team, and add them to 
     one big list
     '''
-
-    return dbn_physical_teams
-
+    dbn_teams_four = dbn_physical_students(physical_teams)
+    dbn_teams = []
+    for x in range(0, len(dbn_teams_four), 4):
+        team = dbn_teams_four[x:x+4]
+        dbn_teams.append(team)
+    return dbn_teams
 
 def dbn_teams_file(durban_physical_teams):
     '''
@@ -128,14 +131,18 @@ def cpt_physical_students(cpt_physical):
     return cpt_physical_students
 
 
-def cpt_physical_teams(cpt_physical_teams):
+def cpt_physical_teams(physical_teams):
     '''
     from the list of cpt_physical_students create list of 4 students per team, and add them to 
     one big list
     '''
-    
-    return cpt_physical_teams
 
+    cpt_teams_four = cpt_physical_students(physical_teams)
+    cpt_teams = []
+    for x in range(0, len(cpt_teams_four), 4):
+        team = cpt_teams_four[x:x+4]
+        cpt_teams.append(team)
+    return cpt_teams
 
 def cpt_teams_file(capetown_final_teams):
     '''
