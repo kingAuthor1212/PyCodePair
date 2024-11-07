@@ -315,24 +315,26 @@ if __name__ == '__main__':
     '''
     call all your functions below to make your program execute    
     '''
+    students = student_list()
 
-    student_list
-    dbn_campus_students
-    dbn_physical_students
-    dbn_physical_teams
-    dbn_teams_file
-    cpt_campus_students
-    cpt_physical_students
-    cpt_physical_teams
-    cpt_teams_file
-    jhb_campus_students
-    jhb_physical_students
-    jhb_physical_teams
-    jhb_teams_file
-    nw_campus_students
-    nw_physical_students
-    nw_teams_file
-    nw_physical_teams
-    virtual_teams
-    virtual_teams_file
-    get_virtual_students
+    dbn_physical_students_list = dbn_physical_students(students)
+    dbn_physical_teams_list = dbn_physical_teams(dbn_physical_students_list)
+    dbn_teams_file(dbn_physical_students_list)
+
+    cpt_physical_students_list = cpt_physical_students(students)
+    cpt_physical_teams_list = cpt_physical_teams(cpt_physical_students_list)
+    cpt_teams_file(cpt_physical_students_list)
+
+    jhb_physical_students_list = jhb_physical_students(students)
+    jhb_physical_teams_list = jhb_physical_teams(jhb_physical_students_list)
+    jhb_teams_file(jhb_physical_students_list)
+
+    nw_physical_students_list = nw_physical_students(students)
+    nw_physical_teams_list = nw_physical_teams(nw_physical_students_list)
+    nw_teams_file(nw_physical_students_list)
+
+    virtual_students_list = get_virtual_students(students)
+    virtual_teams_list = virtual_teams(virtual_students_list)
+    virtual_teams_file(virtual_students_list)
+
+    
