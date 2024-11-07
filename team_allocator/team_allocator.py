@@ -298,13 +298,7 @@ def virtual_teams_file(students):
     '''
     write and save the information in the virtual_teams into a textfile
     '''
-<<<<<<< HEAD
-    teams = []
-    virtual = get_virtual_students(students)
-
-=======
     
->>>>>>> 15bd45c017a45ad5e9e8ed4ab382e42217f712de
 
     while len(virtual) != 0:
         x = virtual[:4]
