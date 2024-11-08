@@ -37,6 +37,10 @@ def is_correct_answer(solution, user_answer):
     @param user_answer - The answer entered by the user
     @return boolean indicating if user answered correctly or not
     '''
+    if  str(solution) == str(user_answer):
+        return True
+    else:
+        return False
 
 
 def next_round(current_round):
@@ -45,6 +49,7 @@ def next_round(current_round):
     @param current round completed
     @return integer next round
     '''
+    return current_round+1
 
 
 if __name__ == '__main__':
