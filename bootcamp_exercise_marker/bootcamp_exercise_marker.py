@@ -13,7 +13,14 @@ def ask_questions(list_of_questions):
     @param list of five questions
     @return a list of questions the user answer incorrectly
     '''
-
+    incorrect_question = []
+    for i, question in enumerate(list_of_questions):
+        userAnswer = display_question(i + 1, question)
+        correct_answer = question.split(', ')[1]
+        if not is_correct_answer(correct_answer, userAnswer):
+            incorrect_question.append(question)
+    return incorrect_question
+        
 
 def display_question(question_number, question):
     '''
