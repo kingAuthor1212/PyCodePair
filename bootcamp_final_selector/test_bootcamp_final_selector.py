@@ -17,7 +17,7 @@ class TestBootcampFinalSelector(unittest.TestCase):
 
     def test_file_exists(self):
         # ask Sam for the relevant path
-        boolean = os.path.isfile("bootcamp_final_selector/student_results.txt")
+        boolean = os.path.isfile("student_results.txt")
         self.assertEqual(boolean, True)
 
 
@@ -72,3 +72,6 @@ class TestBootcampFinalSelector(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+
