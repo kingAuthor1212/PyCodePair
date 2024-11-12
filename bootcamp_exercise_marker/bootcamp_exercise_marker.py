@@ -10,7 +10,7 @@ def read_file():
     with open ("questions.txt", "r") as questions:
         questions_list = questions.readlines()
         random.shuffle(questions_list)
-        list_of_questions = question_list[:5]
+        list_of_questions = questions_list[:5]
     return list_of_questions
 
 def ask_questions(list_of_questions):
@@ -42,7 +42,7 @@ def display_question(question_number, question):
     print(f"{question_number}. {q_list[0]}")
     for option in q_list[1:]:
         print(option)
-    user_answer = input("Your answer (A, B, C :) ").strip.upper()
+    user_answer = input("Your answer (A, B, C :) ").strip().upper()
     return user_answer
 
 def is_correct_answer(solution, user_answer):
@@ -52,7 +52,7 @@ def is_correct_answer(solution, user_answer):
     @param user_answer - The answer entered by the user
     @return boolean indicating if user answered correctly or not
     '''
-
+    return solution.strip().upper() == user_answer
 
 def next_round(current_round):
     '''
@@ -60,7 +60,7 @@ def next_round(current_round):
     @param current round completed
     @return integer next round
     '''
-
+    return current_round +1
 
 if __name__ == '__main__':
 

@@ -9,7 +9,7 @@ def read_file():
         questions_list = random.shuffle(questions.readlines.split())
         list_of_questions=[]
         for i in range(5):
-            list_of_questions.append(question_list.pop())
+            list_of_questions.append(questions_list.pop())
         return list_of_questions
         
 
@@ -36,11 +36,11 @@ def display_question(question_number, question):
     @return the answer given by the user
     '''
     quest_parts = question.split(', ')
-    print(f"{question_number}.{quest_parts[0]}")
-    for option in quest[2:]:
+    print(f"{question_number}. {quest_parts[0]}")
+    for option in quest_parts[1:]:
         print(option)
-    user_answer = input("Your answer (A, B, C :) ").strip.upper()
-    return user_answer
+    # user_answer = input("Your answer (A, B, C :) ").strip().upper()
+    # return user_answer
 
 def is_correct_answer(solution, user_answer):
     '''
