@@ -9,9 +9,10 @@ def read_file():
     #Naledi made changes:
     with open ("questions.txt", "r") as questions:
         questions_list = questions.readlines()
-        random.shuffle(questions_list)
-        list_of_questions = questions_list[:5]
-    return list_of_questions
+    random.shuffle(questions_list)
+    #list_of_questions = questions_list[:5]
+    return questions_list
+    
 
 def ask_questions(list_of_questions):
     '''
@@ -24,8 +25,14 @@ def ask_questions(list_of_questions):
     
     incorrect_question = []
     for i, question in enumerate(list_of_questions):
+        # Ensure the question format is correct before processing
+        parts = question.split(', ')
+        if len(parts) < 2:
+            print(f"Skipping invalid question format: {question}")
+            continue
+        
         userAnswer = display_question(i + 1, question)
-        correct_answer = question.split(', ')[1].strip()
+        correct_answer = parts[1].strip().upper()
         if not is_correct_answer(correct_answer, userAnswer):
             incorrect_question.append(question)
     return incorrect_question
@@ -38,21 +45,21 @@ def display_question(question_number, question):
     @param a single question
     @return the answer given by the user
     '''
-    q_list = question.split(', ')
-    print(f"{question_number}. {q_list[0]}")
-    for option in q_list[1:]:
+    quest_list = question.split(', ')
+    print(f"{question_number}. {quest_list[0]}")
+    for option in quest_list[1:]:
         print(option)
-    user_answer = input("Your answer (A, B, C :) ").strip().upper()
-    return user_answer
+    userAnswer = input("Your answer (A, B, C :) ").strip().upper()
+    return userAnswer
 
-def is_correct_answer(solution, user_answer):
+def is_correct_answer(solution, userAnswer):
     '''
     Checks if the answer given by the user is correct
     @param solution - The correct answer
     @param user_answer - The answer entered by the user
     @return boolean indicating if user answered correctly or not
     '''
-    return solution.strip().upper() == user_answer
+    return solution.strip().upper() == userAnswer
 
 def next_round(current_round):
     '''
