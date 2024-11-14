@@ -14,7 +14,7 @@ def read_file(file_name):
 
 
 def input_user_name():
-    username_input= sys.argv[1]
+    username_input= input("Select username: ")
 
     return username_input
 
@@ -26,18 +26,19 @@ def input_user_name():
 
 def correct_or_incorrect():
 
-    check = input("Is this correct? (Y/n):\n").lower()
+    check = input("Is this correct? (Y/n): ")
     if check == 'y':
-        return 'correct'
-    return 'incorrect'
+        return "correct"
+    elif check == 'n':
+        return 
+    
 
 
 def correct_details():
-    username = input_user_name() #TODO: delete the line first then add it
-
-    date = input("Replace the date here:\n")
-    location = input("Replace the location here:\n")
-    experience = input("Replace the experience here:\n")
+    username = input("Username: ")#TODO: delete the line first then add it
+    date = input("Date: ")
+    location = input("Location: ")
+    experience = input("Experience: ")
     
     new_details = f"{username} - {date} - {location} - {experience}" 
 
@@ -54,45 +55,26 @@ def correct_details():
     * Experience
     """
 
-def get_file_contents():
+def get_file_contents(file_name="bootcampers.txt"):
 
-    return read_file('bootcampers.txt')
+    return read_file(file_name)
 
 
 def find_username(file_name):
     #while True:
     username = input_user_name()
-    details = file_name
+    details = get_file_contents(file_name)
 
-    # for line in details:
-    #     if not line:
-    #         continue
-
-    # for line in details:
-    #     if username in line:
-    #         print(line)
-    #         return f"Select username: {line}"
-    #     else:
-    #         return "Select username: Please enter a valid existng username"
-
+   
     for line in details:
-        print(line)
         if username in line:
-            user, info = line.strip().split('-', 1)
-            return f"Select username: {info} \n"
-     
-    
-    # for line in details:
-    #     if username in line:
-    #         return print(f"Select username: {line} \n")
-    #     elif username in details[1]:
-    #         print(details[1])
-    #         return print(f"Select username: {details[1]} \n")
-    #     elif username in details[2]:
-    #         print(details[2])
-    #         return print(f"Select username: {details[2]} \n")
-    #     else:
-    #         return "Select username: Please enter a valid existing username"
+            # print(line)
+            user, info = line.strip().split(' - ', 1)
+            print(info)
+            return info
+        
+    print("Please enter valid existing username")
+    return find_username(file_name)
  
     """
     Main functiontion for running Registration Station, which inlcude:
@@ -104,13 +86,11 @@ def find_username(file_name):
 
 
 if __name__ == "__main__":
-    registrations_file = get_file_contents()
-    information = find_username(registrations_file)
+    information = find_username("bootcampers.txt")
     while True:
         answer = correct_or_incorrect()
         if answer == "correct":
             print(information)
             break
-        else:
-            correct_details()
-
+        # else:
+        #     correct_details()
